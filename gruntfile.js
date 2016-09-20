@@ -22,14 +22,14 @@ module.exports = function(grunt) {
 					outputStyle: 'compressed'
 				},
 				files: {
-					'assets/css/styles.min.css': 'assets/scss/styles.scss',
+					'assets/dist/main.min.css': 'assets/scss/styles.scss',
 				}
 			}
 		},
 
 		scsslint: {
 			allFiles: [
-			'assets/scss/*.scss'
+			'assets/scss/**/*.scss'
 			],
 			options: {
 				config: '.scss-lint.yml',
@@ -40,12 +40,11 @@ module.exports = function(grunt) {
 		postcss: {
 			options: {
 				processors: [
-				require('pixrem')(),
-				require('autoprefixer')({browsers: ['last 2 versions', 'ie >= 9']}),
+					require('autoprefixer')({browsers: ['last 2 versions', 'ie >= 9']}),
 				]
 			},
 			dist: {
-				src: 'assets/css/styles.min.css'
+				src: 'assets/dist/main.min.css'
 			}
 		},
 
@@ -55,7 +54,8 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'assets/js/modules/theme.js'
+					'assets/js/modules/*.js',
+					'assets/js/px-theme.js'
 				],
 				dest: 'assets/js/modules.js',
 			},
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 		uglify: {
 			dist: {
 				files: {
-					'assets/js/dist/main.min.js': ['assets/js/modules.js']
+					'assets/dist/main.min.js': ['assets/js/modules.js']
 				}
 			}
 		},
