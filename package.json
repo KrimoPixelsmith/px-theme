@@ -1,0 +1,25 @@
+{
+	"name": "px-theme",
+	"version": "1.0.0",
+	"devDependencies": {
+		"autoprefixer": "*",
+		"bower": "*",
+		"grunt": "*",
+		"grunt-browser-sync": "*",
+		"grunt-cli": "*",
+		"grunt-contrib-concat": "*",
+		"grunt-contrib-copy": "*",
+		"grunt-contrib-jshint": "*",
+		"grunt-contrib-uglify": "*",
+		"grunt-contrib-watch": "*",
+		"grunt-githooks": "*",
+		"grunt-newer": "*",
+		"grunt-phplint": "*",
+		"grunt-sass": "*",
+		"grunt-scss-lint": "*",
+		"grunt-string-replace": "*",
+		"jshint-stylish": "*",
+		"load-grunt-tasks": "*",
+		"time-grunt": "*"
+	}
+}
