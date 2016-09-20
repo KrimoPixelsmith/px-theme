@@ -82,26 +82,13 @@ module.exports = function(grunt) {
 			all: ['**/*.php', '!vendor/*.php', '!vendor/**/*.php']
 		},
 
-		githooks: {
-			options: {
-				hashbang: '#!/bin/sh',
-				template: 'node_modules/grunt-githooks/templates/shell.hb',
-				startMarker: '## GRUNT-GITHOOKS START',
-				endMarker: '## GRUNT-GITHOOKS END',
-				command: 'PATH='+process.env.PATH+' grunt'
-			},
-			all: {
-				'pre-commit': 'linting'
-			}
-		},
-
 		browserSync: {
             dev: {
                 bsFiles: {
                     src : [
                         '**/*.php', '!vendor/*.php', '!vendor/**/*.php',
-                        'assets/css/*.css',
-                        'assets/js/dist/*.js'
+                        'assets/dist/*.css',
+                        'assets/dist/*.js'
                     ]
                 },
                 options: {
@@ -124,7 +111,7 @@ module.exports = function(grunt) {
 
 			js: {
 				files: ['assets/js/vendor/**/*.js', 'assets/js/modules/**/*.js', 'assets/js/main.js'],
-				tasks: ['concat', 'newer:uglify'],
+				tasks: ['newer:concat', 'newer:uglify'],
 				options: {
 					livereload:true,
 				}
@@ -132,15 +119,13 @@ module.exports = function(grunt) {
 
 			all: {
 				files: ['**/*.php', '!vendor/*.php', '!vendor/**/*.php'],
-				tasks: ['phplint'],
+				tasks: ['newer:phplint:all'],
 				options: {
 					livereload:true,
 				}
 			}
 		}
 	});
-
-	grunt.registerTask('build', ['scsslint', 'sass', 'postcss', 'jshint', 'concat', 'uglify']);
-	grunt.registerTask('linting', ['newer:scsslint', 'newer:jshint', 'newer:phplint']);
+	
 	grunt.registerTask('default', ['browserSync', 'watch']);
 };
