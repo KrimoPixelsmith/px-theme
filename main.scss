@@ -1,0 +1,5 @@
+.container {
+	width: $containerMaxWidth;
+	margin: 0 auto;
+	@extend %cf;
+}

@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
 	var globalConfig = {
-		proxy: 'dependencies.dev'
+		proxy: 'px-theme.dev'
 	};
 
 	// load all grunt tasks matching the ['grunt-*', '@*/grunt-*'] patterns
@@ -126,6 +126,6 @@ module.exports = function(grunt) {
 			}
 		}
 	});
-	
+
 	grunt.registerTask('default', ['browserSync', 'watch']);
 };
